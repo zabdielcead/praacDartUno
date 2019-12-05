@@ -8,4 +8,7 @@ class Cuadrado {
 
 main() {
 
+  final cuadrado = new Cuadrado(10); // no nos interese modificar las propiedades una ves que se han establecidas
+  print(cuadrado.area);
+
 }
