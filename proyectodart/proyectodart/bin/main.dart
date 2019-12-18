@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+//
+import 'package:proyectodart/classes/paquetes.dart' as paquetes;
+//import 'package:proyectodart/classes/reqres_respuesta.dart';
 
 
 import 'package:proyectodart/proyectodart.dart' as proyectodart; // proyectodart es alias 
@@ -24,12 +26,29 @@ main(List<String> arguments) {
 
     rest api https://reqres.in/
 
-   */
     final url = 'https://reqres.in/api/users?page=2';
     http.get(url).then( (res) {
-      print(res);
+      // print(res);
+      //final body = jsonDecode(res.body);
+      //print(body);
+      //print('page:  ${body['page']}');
+      //print('per page: ${body['per_page']}');
+      //print('id tercer elemento: ${body['data'][2]['id']}');
+
+      final resreq =  reqResFromJson(res.body);
+      print('page:  ${resreq.page}');
+      print('per page: ${resreq.perPage}');
+      print('id tercer elemento: ${resreq.data[2].id}');
     });
+   */
 
+    /*
+    pagina que convierte json a clases dart
+      https://app.quicktype.io/
 
+    */
+
+    paquetes.getReqResp_service();
+    paquetes.getReqRespPais_service();
 
 }
